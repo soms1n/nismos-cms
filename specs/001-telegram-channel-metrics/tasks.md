@@ -22,11 +22,11 @@ description: "Task list for Telegram channel audience metrics"
 
 **Purpose**: Создать минимальный pnpm workspace и независимое full-stack приложение без преждевременных shared packages
 
-- [ ] T001 Создать корневой workspace с Node.js 24 LTS, packageManager pnpm и общими командами приложения в `package.json` и `pnpm-workspace.yaml`; включить только `apps/*`
-- [ ] T002 Инициализировать Next.js App Router, React и TypeScript 5.x с зависимостями Auth.js, `@mtcute/node` и Zod, зафиксировать версии в `apps/admin-telegram/package.json`, `apps/admin-telegram/next.config.ts`, `apps/admin-telegram/tsconfig.json` и `pnpm-lock.yaml`
-- [ ] T003 [P] Настроить линтинг и форматирование с командами проверки в `apps/admin-telegram/eslint.config.mjs`, `.prettierrc.json` и `package.json`
-- [ ] T004 [P] Настроить Vitest, React Testing Library и Playwright без добавления тестовых сценариев в `apps/admin-telegram/vitest.config.ts`, `apps/admin-telegram/playwright.config.ts`, `apps/admin-telegram/tests/setup.ts` и `apps/admin-telegram/package.json`
-- [ ] T005 [P] Исключить зависимости, артефакты, локальные секреты и Telegram-сессии из Git и описать только имена переменных окружения в `.gitignore` и `apps/admin-telegram/.env.example`
+- [x] T001 Создать корневой workspace с Node.js 24 LTS, packageManager pnpm и общими командами приложения в `package.json` и `pnpm-workspace.yaml`; включить только `apps/*`
+- [x] T002 Инициализировать Next.js App Router, React и TypeScript 5.x с зависимостями Auth.js, `@mtcute/node` и Zod, зафиксировать версии в `apps/admin-telegram/package.json`, `apps/admin-telegram/next.config.ts`, `apps/admin-telegram/tsconfig.json` и `pnpm-lock.yaml`
+- [x] T003 [P] Настроить линтинг и форматирование с командами проверки в `apps/admin-telegram/eslint.config.mjs`, `.prettierrc.json` и `package.json`
+- [x] T004 [P] Настроить Vitest, React Testing Library и Playwright без добавления тестовых сценариев в `apps/admin-telegram/vitest.config.ts`, `apps/admin-telegram/playwright.config.ts`, `apps/admin-telegram/tests/setup.ts` и `apps/admin-telegram/package.json`
+- [x] T005 [P] Исключить зависимости, артефакты, локальные секреты и Telegram-сессии из Git и описать только имена переменных окружения в `.gitignore` и `apps/admin-telegram/.env.example`
 
 ---
 
@@ -36,12 +36,12 @@ description: "Task list for Telegram channel audience metrics"
 
 **CRITICAL**: Никакая работа над US1 не начинается до завершения этой фазы. Неуспешный T012 блокирует реализацию и возвращает спецификацию на уточнение.
 
-- [ ] T006 Реализовать строгую загрузку конфигурации через Zod с `channelRef` только на сервере, проверкой всех обязательных переменных и без вывода секретов в `apps/admin-telegram/src/server/config.ts`
-- [ ] T007 Реализовать серверный lifecycle MTProto-клиента с импортом session string в память, повторным использованием соединения, корректным закрытием и запретом клиентского импорта в `apps/admin-telegram/src/server/telegram/client.ts`
-- [ ] T008 Создать интерактивную одноразовую авторизацию выделенного Telegram-аккаунта с 2FA и экспортом сессии в защищённый файл вне репозитория без записи сессии в логи в `apps/admin-telegram/scripts/telegram-login.ts`
-- [ ] T009 Определить серверные типы запроса доступа, страниц участников и результата полного обхода, включая `participantId` и `classification` (`deleted` | `real` | `unknown`), в `apps/admin-telegram/src/server/telegram/gateway.ts`
-- [ ] T010 Реализовать MTProto-обход через `channels.getFullChannel` и `channels.getParticipants`: проверка `can_view_participants` и `participants_hidden`, пустой поисковый фильтр вместо `recent`, offset/limit-пагинация, дедупликация по ID, обработка `FLOOD_WAIT` и явная ошибка неполного обхода в `apps/admin-telegram/src/server/telegram/mtcute-gateway.ts`
-- [ ] T011 Создать feasibility spike с агрегированным выводом без ID/имён участников, сверкой контрольных счётчиков, повторным обходом и не менее чем 20 измерениями длительности; подключить команду `telegram:verify` в `apps/admin-telegram/scripts/verify-telegram-access.ts` и `apps/admin-telegram/package.json`
+- [x] T006 Реализовать строгую загрузку конфигурации через Zod с `channelRef` только на сервере, проверкой всех обязательных переменных и без вывода секретов в `apps/admin-telegram/src/server/config.ts`
+- [x] T007 Реализовать серверный lifecycle MTProto-клиента с импортом session string в память, повторным использованием соединения, корректным закрытием и запретом клиентского импорта в `apps/admin-telegram/src/server/telegram/client.ts`
+- [x] T008 Создать интерактивную одноразовую авторизацию выделенного Telegram-аккаунта с 2FA и экспортом сессии в защищённый файл вне репозитория без записи сессии в логи в `apps/admin-telegram/scripts/telegram-login.ts`
+- [x] T009 Определить серверные типы запроса доступа, страниц участников и результата полного обхода, включая `participantId` и `classification` (`deleted` | `real` | `unknown`), в `apps/admin-telegram/src/server/telegram/gateway.ts`
+- [x] T010 Реализовать MTProto-обход через `channels.getFullChannel` и `channels.getParticipants`: проверка `can_view_participants` и `participants_hidden`, пустой поисковый фильтр вместо `recent`, offset/limit-пагинация, дедупликация по ID, обработка `FLOOD_WAIT` и явная ошибка неполного обхода в `apps/admin-telegram/src/server/telegram/mtcute-gateway.ts`
+- [x] T011 Создать feasibility spike с агрегированным выводом без ID/имён участников, сверкой контрольных счётчиков, повторным обходом и не менее чем 20 измерениями длительности; подключить команду `telegram:verify` в `apps/admin-telegram/scripts/verify-telegram-access.ts` и `apps/admin-telegram/package.json`
 - [ ] T012 Выполнить `pnpm telegram:verify` на реальном staging-канале с независимо известным контрольным набором, включая удалённые аккаунты; записать только агрегированные результаты, полноту классификации и измерения SC-002 в `specs/001-telegram-channel-metrics/research.md`; при неудаче остановить последующие задачи
 - [ ] T013 Настроить Auth.js с OIDC/OAuth и реализовать серверный guard: доступ только по паре `issuer + subject` из allowlist, email сам по себе не критерий, проверка allowlist при каждом запросе, `401` без сессии и `403` без прав в `apps/admin-telegram/src/server/auth.ts` и `apps/admin-telegram/src/app/api/auth/[...nextauth]/route.ts`
 - [ ] T014 [P] Создать единый безопасный формат HTTP-ошибок и ответов с `Cache-Control: no-store`, UTC ISO 8601 timestamps и отсутствием внутренних деталей/данных подписчиков в `apps/admin-telegram/src/server/http.ts`
